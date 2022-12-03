@@ -34,3 +34,10 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+      - name: docker build
+        run: |
+          docker build -t demoexple/demolab:latest
+          docker push demoexple/demolab:v1
+      - name: docker build
+        run: aws ecs update-service --account <ID> ---region us-east-1 --service my-http-service --task-definition amazon-ecs-sample
+          
